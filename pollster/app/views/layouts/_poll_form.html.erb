@@ -1,0 +1,13 @@
+<div class="alert alert-error"><% if @poll.errors.any? %>
+  <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being updated:</h2>
+  <ul>
+  <% @poll.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+</div>
+
+<%= form_for @poll do |f| %>
+  <%= f.text_field :name, placeholder: "Name of Poll" %>
+  <%= f.submit %>
+<% end %>
