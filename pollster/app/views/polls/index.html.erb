@@ -1,5 +1,5 @@
-<% @polls.each do |poll| %>
-  <%= poll.name %>
+<% @polls.each_with_index do |poll,index| %>
+  <p><span class="badge badge-info"><%= "#{index+1}" %></span> <%= poll.name %></p>
 <% end %>
 
 <%= link_to "Create New Poll", new_poll_path %>
