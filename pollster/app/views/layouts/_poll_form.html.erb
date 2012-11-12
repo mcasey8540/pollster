@@ -10,6 +10,16 @@
 <% end %>
 
 <%= form_for @poll do |f| %>
-  <%= f.text_field :name, placeholder: "Name of Poll" %>
-  <%= f.submit %>
+  <form class="form-horizontal">
+    <div class="control-group">
+      <div class="controls">
+        <%= f.text_field :name, placeholder: "Name of Poll", class: "input-xxlarge" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "Create Poll", class: "btn btn-danger" %>
+      </div>
+    </div>
+  </form>
 <% end %>

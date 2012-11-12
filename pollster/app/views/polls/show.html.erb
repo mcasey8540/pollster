@@ -1,5 +1,5 @@
 <%= @poll.name %>
 <br /><br />
-<%= link_to "Add New Question", new_poll_question_path(@poll) %>
-<p>
-<%= link_to "Edit Poll", "#{@poll.id}/#{@poll.url}" %>
+<%= link_to "Add New Question" %>
+<p><%= link_to "Edit Poll", "#{@poll.id}/#{@poll.url}" %></p>
+<p><%= link_to "Go Home", root_path, class: "btn btn-warning" %></p>
