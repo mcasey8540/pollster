@@ -26,7 +26,9 @@ class PollsController < ApplicationController
   end
 
   def edit
-
+    if params[:url].blank?
+      redirect_to poll_path(@poll)
+    end
   end
 
   def update

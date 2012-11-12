@@ -1,6 +1,8 @@
 Pollster::Application.routes.draw do
 
-  resources :polls
+  resources :polls do
+    resources :questions
+  end
 
   match "polls/:id/:url", to: "polls#edit"
 
