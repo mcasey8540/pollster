@@ -5,6 +5,8 @@ Pollster::Application.routes.draw do
   end
 
   match "polls/:id/:url", to: "polls#edit"
+  match "polls/:poll_id/:url/questions/:question_id/edit", to: "questions#edit"
+  match "polls/:poll_id/:url/questions/:question_id/delete", to: "questions#destroy"
 
   root to: "polls#index"
 

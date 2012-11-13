@@ -1,5 +1,19 @@
-<%= @poll.name %>
-<br /><br />
-<%= link_to "Add New Question" %>
+<% if notice %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+<p class="lead"><%= @poll.name %></p>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>#</th>
+    <th>Question</th>
+  </tr>
+  <% @poll.questions.each_with_index do |q,index| %>
+  <tr>
+    <td><span class="badge badge-info"><%= "#{index+1}" %></span></td>
+    <td><%= q.name %></td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to "Add New Question", new_poll_question_path(@poll) %>
 <p><%= link_to "Edit Poll", "#{@poll.id}/#{@poll.url}" %></p>
 <p><%= link_to "Go Home", root_path, class: "btn btn-warning" %></p>
