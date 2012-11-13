@@ -14,7 +14,7 @@ class PollsController < ApplicationController
     @poll = Poll.new(params[:poll])
     @poll.url = Digest::SHA1.hexdigest(@poll.name)
     if @poll.save
-      redirect_to @poll
+      redirect_to root_path
     else
       flash[:notice] = "Poll was not created. Please try again."
       render 'new'
@@ -22,7 +22,6 @@ class PollsController < ApplicationController
   end
 
   def show
-    #@response = @question.responses.new(params[:response])
   end
 
   def edit
@@ -43,7 +42,7 @@ class PollsController < ApplicationController
 private
 
   def find_poll
-    @poll = Poll.find(params[:id])
+     @poll = Poll.find(params[:id])
   end
 
 end

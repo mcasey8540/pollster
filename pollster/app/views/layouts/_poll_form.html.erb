@@ -9,21 +9,6 @@
 </div>
 <% end %>
 
-<%= form_for @poll do |f| %>
-  <form class="form-horizontal">
-    <div class="control-group">
-      <div class="controls">
-        <%= f.text_field :name, placeholder: "Name of Poll", class: "input-xxlarge" %> <%= link_to "Edit", edit_poll_question_path([@poll,@question]) %> <%= link_to "Delete" %>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit class: "btn btn-danger" %>
-      </div>
-    </div>
-  </form>
-<% end %>
-
 <table class="table table-striped table-bordered">
   <tr>
     <th>#</th>
@@ -40,3 +25,4 @@
   </tr>
 <% end %>
 </table>
+

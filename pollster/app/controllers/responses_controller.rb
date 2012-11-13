@@ -1,6 +1,5 @@
 class ResponsesController < ApplicationController
   def create
-
     @question = Question.find(params[:question_id])
     @response = @question.responses.new(params[:response])
 
