@@ -4,6 +4,10 @@ Pollster::Application.routes.draw do
     resources :questions
   end
 
+  resources :questions do
+    resources :responses
+  end
+
   match "polls/:id/:url", to: "polls#edit"
   match "polls/:poll_id/:url/questions/:question_id/edit", to: "questions#edit"
   match "polls/:poll_id/:url/questions/:question_id/delete", to: "questions#destroy"

@@ -22,7 +22,7 @@ class PollsController < ApplicationController
   end
 
   def show
-
+    #@response = @question.responses.new(params[:response])
   end
 
   def edit
@@ -43,7 +43,7 @@ class PollsController < ApplicationController
 private
 
   def find_poll
-     @poll = Poll.find(params[:id])
+    @poll = Poll.find(params[:id])
   end
 
 end
