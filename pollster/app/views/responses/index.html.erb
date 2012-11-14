@@ -1,0 +1,10 @@
+<table class="table table-striped table-bordered">
+  <tr>
+    <th>Responses</th>
+  </tr>
+  <% @responses.each do |response| %>
+    <tr>
+      <td><%= response.response %></td>
+    </tr>
+<% end %>
+</table>

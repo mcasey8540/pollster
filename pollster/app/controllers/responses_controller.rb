@@ -9,4 +9,11 @@ class ResponsesController < ApplicationController
       render 'polls/show'
     end
   end
+
+
+  def index
+    @question = Question.find(params[:question_id])
+    @responses = @question.responses
+  end
+
 end

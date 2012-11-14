@@ -11,7 +11,7 @@
   <%= poll_form.fields_for :questions do |questions_form| %>
     <%= questions_form.fields_for :response do |responses_form| %>
       <tr>
-        <td><%= questions_form.object.name %></td>
+        <td><%= link_to questions_form.object.name, question_responses_path(questions_form.object.id) %></td>
         <td><%= responses_form.text_field :response %></td>
       </tr>
     <% end %>
