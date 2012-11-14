@@ -3,21 +3,25 @@
 <% end %>
 <p class="lead"><%= @poll.name %></p>
 <table class="table table-striped table-bordered">
-  <tr>
-    <th>#</th>
-    <th>Question</th>
-    <th>Your Response</th>
-  </tr>
-  <% @poll.questions.each_with_index do |question, index| %>
-  <%= form_for [question, Response.new(:question => question)] do |f| %>
-    <tr>
-      <td><span class="badge badge-info"><%= "#{index+1}" %></span></td>
-      <td><%= question.name %></td>
-      <td><%= f.text_field :response %> <%= f.submit %></td>
-    </tr>
-  <% end %>
+<tr>
+  <th>Question</th>
+  <th>Your Response</th>
+</tr>
+<%= form_for @poll do |poll_form| %>
+  <%= poll_form.fields_for :questions do |questions_form| %>
+    <%= questions_form.fields_for :response do |responses_form| %>
+      <tr>
+        <td><%= questions_form.object.name %></td>
+        <td><%= responses_form.text_field :response %></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
+<%= poll_form.submit %>
+<% end %>
+
+</br>
+</br>
 
 <%= link_to "Add New Question", new_poll_question_path(@poll) %>
 <p><%= link_to "Edit Poll", "#{@poll.id}/#{@poll.url}" %></p>

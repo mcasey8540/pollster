@@ -4,4 +4,5 @@ class Response < ActiveRecord::Base
   validates :response, presence: true, length: { minimum: 5 }
 
   belongs_to :question
+  belongs_to :poll
 end
